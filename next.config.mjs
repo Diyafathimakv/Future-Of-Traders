@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
   reactCompiler: true,
+
+  experimental: {
+    disableRouteAnnouncer: true,   // ← THIS removes the N icon
+  },
 };
 
 export default nextConfig;
