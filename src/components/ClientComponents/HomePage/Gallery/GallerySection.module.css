@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+.gallerySection {
+    padding: 100px 5vw;
+    background-color: #F7F7F7;
+    position: relative;
+    overflow: hidden;
+    /* Clean background, subtle dot pattern */
+    background-image: radial-gradient(#d1d1d1 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+}
+
+/* --- Dynamic Vertical Lines --- */
+.bgLine {
+    position: absolute;
+    background-color: rgba(212, 175, 55, 0.3);
+    /* Base Gold */
+    z-index: 1;
+    pointer-events: none;
+    will-change: height;
+}
+
+.lineVertical {
+    width: 1px;
+    /* Thinner, elegant 1px lines */
+    top: 0;
+    /* Gradient fade at bottom of line so it looks like it's drawing down */
+    background: linear-gradient(to bottom, #D4AF37, transparent);
+}
+
+.lineLeft {
+    left: 15%;
+}
+
+.lineCenter {
+    left: 50%;
+    background: linear-gradient(to bottom, #D94D4D, transparent);
+    /* Red Center Line */
+}
+
+.lineRight {
+    right: 15%;
+}
+
+/* ... Existing Styles ... */
+
+.headingWrapper {
+    text-align: center;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.galleryLabel {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    color: #D4AF37;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.mainHeading {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #1C1C1C;
+    margin: 0;
+}
+
+/* Single column stack */
+.galleryGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* The item wrapper */
+.galleryItem {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Zigzag Logic */
+.galleryItem:nth-child(odd) {
+    justify-content: flex-end;
+    padding-right: 15%;
+}
+
+.galleryItem:nth-child(even) {
+    justify-content: flex-start;
+    padding-left: 15%;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+    background-color: #000;
+}
+
+/* Strong Vignette Effect */
+.imageWrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.5) 85%, rgba(0, 0, 0, 0.95) 100%);
+    pointer-events: none;
+    z-index: 10;
+    mix-blend-mode: multiply;
+}
+
+.imageWrapper:hover {
+    transform: scale(1.02);
+    transition: transform 0.5s ease;
+}
+
+@media (max-width: 1024px) {
+
+    /* Keep Zigzag layout but with less extreme spacing */
+    .galleryItem:nth-child(odd) {
+        justify-content: flex-end;
+        padding-right: 5%;
+    }
+
+    .galleryItem:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 5%;
+    }
+
+    .imageWrapper {
+        max-width: 65%;
+        /* Smaller images as requested */
+    }
+
+    .galleryGrid {
+        gap: 50px;
+    }
+
+    .mainHeading {
+        font-size: 3rem;
+    }
+}

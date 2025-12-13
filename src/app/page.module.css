@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* justify-content: center; Removed to allow natural flow */
+    align-items: center;
+    /* overflow: hidden; Removed to allow scrolling */
+}
+
+.heroContainer {
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.heroText {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: #D4AF37;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, #F7F7F7, #D4AF37, #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.heroSubText {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #D94D4D;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 500;
+    margin-top: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .heroText {
+        font-size: 42px;
+    }
+
+    .heroSubText {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+}
