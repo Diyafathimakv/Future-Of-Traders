@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 .footer {
-    background-color: transparent;
-    /* Transparent to show animated background */
-    backdrop-filter: blur(5px);
-    /* Subtle blur for readability */
+    background-color: #1c1c1c;
+    /* Solid background to hide particles */
     color: #F7F7F7;
     /* Bright White */
     padding: 80px 5vw 40px;
     font-family: 'Montserrat', sans-serif;
     border-top: 1px solid #333;
+    width: 100vw;
 }
 
 .container {

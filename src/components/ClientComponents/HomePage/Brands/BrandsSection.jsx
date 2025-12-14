@@ -10,7 +10,7 @@ const brands = [
     {
         id: "dining",
         name: "Asmak",
-        src: "/Asmak logo bg.png",
+        src: "/Asmak new logo bg.png",
         // scale removed, handled in CSS
         brief: "Experience the finest seafood delicacies sourced from pristine waters. A culinary journey of flavor and tradition."
     },

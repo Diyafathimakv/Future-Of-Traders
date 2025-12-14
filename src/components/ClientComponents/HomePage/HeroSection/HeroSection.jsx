@@ -30,7 +30,7 @@ const HeroSection = () => {
                 transition={{ duration: 1, delay: 1.5 }}
             >
                 <div className={styles.logoWrapper}>
-                    <Image src="/Asmak logo bg.png" alt="Asmak" fill style={{ objectFit: 'contain' }} />
+                    <Image src="/Asmak new logo bg.png" alt="Asmak" fill style={{ objectFit: 'contain' }} />
                 </div>
                 <div className={styles.logoWrapper}>
                     <Image src="/Matify logo bg.png" alt="Matify" fill style={{ objectFit: 'contain' }} />

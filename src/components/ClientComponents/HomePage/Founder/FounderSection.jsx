@@ -40,10 +40,12 @@ const FounderSection = () => {
                 >
                     {/* Placeholder Image - Replace when user provides real one */}
                     <Image
-                        src="/pixabay_oldtimer.jpg" // Temporarily reuse an existing classy image or generic placeholder
+                        src="/The Founder.png"
+                        // Temporarily reuse an existing classy image or generic placeholder
                         alt="Diya Fathima"
-                        fill
-                        style={{ objectFit: "cover" }}
+                        width={800}
+                        height={1000}
+                        style={{ width: "100%", height: "auto", display: "block" }}
                     />
                     {/* Gradient Overlay for text readability if needed, or style */}
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }} />
