@@ -21,11 +21,11 @@ export default function Slides() {
                     style={{ zIndex: 20 + i }}
                 >
                     <div className={styles.bg}>
-                        <Image 
-                            src={s.src} 
-                            alt={s.alt} 
-                            fill 
-                            style={{ objectFit: "cover" }} 
+                        <Image
+                            src={s.src}
+                            alt={s.alt}
+                            fill
+                            style={{ objectFit: "cover" }}
                             sizes="100vw"
                             priority
                         />
@@ -35,8 +35,9 @@ export default function Slides() {
                     </div>
 
                 </div>
-            ))}
+            ))
+            }
 
-        </div>
+        </div >
     );
 }

@@ -4,16 +4,38 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.css";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [hidden, setHidden] = useState(false);
+
+    const { scrollY } = useScroll();
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const previous = scrollY.getPrevious();
+        if (latest > previous && latest > 150) {
+            setHidden(true);
+        } else {
+            setHidden(false);
+        }
+    });
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
     return (
-        <header className={styles.header}>
+        <motion.header
+            className={styles.header}
+            variants={{
+                visible: { y: 0 },
+                hidden: { y: "-100%" },
+            }}
+            animate={hidden ? "hidden" : "visible"}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 1000 }} // Ensure fixed position
+        >
             <div className={styles.logoContainer}>
                 <Image
                     src="/FOT logo2.png"
@@ -40,7 +62,7 @@ const Header = () => {
                     <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
                 </ul>
             </nav>
-        </header>
+        </motion.header>
     );
 };
 

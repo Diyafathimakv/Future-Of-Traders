@@ -5,6 +5,14 @@ const nextConfig = {
   experimental: {
     disableRouteAnnouncer: true,   // ← THIS removes the N icon
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

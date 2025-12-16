@@ -10,10 +10,7 @@
     justify-content: space-between;
     background-color: transparent;
     /* As requested, matches black body */
-    position: absolute;
-    /* or fixed/sticky depending on needs */
-    top: 0;
-    left: 0;
+    /* Position handled in JSX */
     z-index: 1000;
 }
 

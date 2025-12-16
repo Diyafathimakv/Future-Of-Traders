@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import styles from "./BrandsSection.module.css";
+import Link from "next/link";
 
 // Brand Data
 const brands = [
@@ -17,7 +18,7 @@ const brands = [
     {
         id: "auto",
         name: "FOTMAT",
-        src: "/Matify logo bg.png",
+        src: "/Fotmatt.png",
         brief: "Premium automotive accessories designed for durability and style. Elevate your drive with precision-crafted carmats."
     },
     {
@@ -125,7 +126,7 @@ const BrandsSection = () => {
                     transition={{ duration: 0.1 }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    Explore Brands <span>&rarr;</span>
+                    <Link href="/brands" style={{ textDecoration: 'none', color: "#f7f7f7" }}>Explore Brands <span>&rarr;</span></Link>
                 </motion.button>
             </div>
         </section>

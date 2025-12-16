@@ -33,7 +33,7 @@ const HeroSection = () => {
                     <Image src="/Asmak new logo bg.png" alt="Asmak" fill style={{ objectFit: 'contain' }} />
                 </div>
                 <div className={styles.logoWrapper}>
-                    <Image src="/Matify logo bg.png" alt="Matify" fill style={{ objectFit: 'contain' }} />
+                    <Image src="/fotmatt.png" alt="Fotmat" fill style={{ objectFit: 'contain' }} />
                 </div>
                 <div className={styles.logoWrapper}>
                     <Image src="/Standby Hub logo bg.png" alt="Standby Hub" fill style={{ objectFit: 'contain' }} />

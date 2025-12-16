@@ -14,7 +14,7 @@
 }
 
 .heroText {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 64px;
     font-weight: 700;
     color: #D4AF37;
@@ -53,6 +53,11 @@
     width: 220px;
     height: 120px;
     /* transition: transform 0.3s ease; */
+}
+
+.fotmatLogo {
+    width: 15rem;
+    height: 15rem;
 }
 
 /* .logoWrapper:hover {
