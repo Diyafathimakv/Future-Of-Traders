@@ -5,7 +5,6 @@ import AboutSection from "../components/ClientComponents/HomePage/About/AboutSec
 import GallerySection from "../components/ClientComponents/HomePage/Gallery/GallerySection";
 import BrandsSection from "../components/ClientComponents/HomePage/Brands/BrandsSection";
 import FounderSection from "../components/ClientComponents/HomePage/Founder/FounderSection";
-
 import Background from "../components/ClientComponents/HomePage/BackGround/Background";
 // import Background from "../components/ClientComponents/HomePage/BackGround/Background";
 
