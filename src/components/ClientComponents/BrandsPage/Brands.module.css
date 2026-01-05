@@ -69,6 +69,11 @@
     align-items: center;
     padding: 4rem;
     text-align: center;
+    overflow-x: hidden;
+    /* Prevent horizontal overflow from animations/layout */
+    width: 100%;
+    box-sizing: border-box;
+    /* Explicitly ensure padding is included in width */
 }
 
 .gridItem {
@@ -205,7 +210,8 @@
 }
 
 /* Asmak Club Section Styles */
-.asmakContainer {
+/* Premium Brand Showcase Section Styles (Shared) */
+.premiumShowcase {
     max-width: 1200px;
     width: 100%;
     text-align: left;
@@ -213,7 +219,7 @@
     /* Bright White */
 }
 
-.clubTitle {
+.brandTitleLarge {
     font-size: 4rem;
     color: #D4AF37;
     /* Gold */
@@ -224,14 +230,14 @@
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.asmakContent {
+.showcaseContent {
     display: flex;
     gap: 4rem;
     margin-bottom: 4rem;
     align-items: center;
 }
 
-.asmakText {
+.showcaseText {
     flex: 1;
     font-size: 1.1rem;
     line-height: 1.8;
@@ -239,11 +245,11 @@
     /* Slightly off-white for readability */
 }
 
-.asmakText p {
+.showcaseText p {
     margin-bottom: 1.5rem;
 }
 
-.asmakText strong {
+.showcaseText strong {
     color: #D4AF37;
     /* Gold for emphasis */
 }
@@ -272,7 +278,7 @@
     color: #fff;
 }
 
-.asmakImage {
+.showcaseImage {
     flex: 0.8;
 }
 
@@ -282,6 +288,7 @@
     height: 400px;
     border-radius: 20px;
     overflow: hidden;
+
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(212, 175, 55, 0.2);
 }
@@ -354,8 +361,19 @@
 }
 
 .founderImgWrapper {
-    width: 100%;
-    height: 250px;
+    width: 25rem;
+    height: 20rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #D4AF37;
+    /* Gold Border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.founderImg {
+    width: 300px;
+    height: 300px;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
@@ -378,9 +396,52 @@
     margin-top: 0.2rem;
 }
 
+@media (max-width: 1024px) {
+
+    /* Tablet Hero */
+    .heroHeading {
+        width: 50%;
+        left: 5%;
+        padding: 1.5rem;
+    }
+
+    .heroHeading h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Scroll Stack Tablet */
+    .bigText {
+        font-size: 4rem;
+    }
+
+    .stackCard {
+        width: 180px;
+        height: 270px;
+    }
+
+    /* Showcase Tablet */
+    .brandShowcase {
+        padding: 3rem;
+    }
+
+    .showcaseContent {
+        gap: 2rem;
+    }
+
+    .brandTitleLarge {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 900px) {
-    .asmakContent {
+    .showcaseContent {
         flex-direction: column;
+    }
+
+    .showcaseImage {
+        width: 100%;
+        flex: auto;
+        margin-top: 2rem;
     }
 
     .foundersNote {
@@ -389,12 +450,162 @@
         text-align: center;
     }
 
-    .foundersImage {
+    .foundersGrid {
         width: 100%;
+        flex-direction: column;
+    }
+
+    .brandTitleLarge {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Hero Section Mobile */
+    .heroGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .heroHeading {
+        top: auto;
+        bottom: 10%;
+        left: 5%;
+        width: 90%;
+        transform: none;
+        padding: 1.5rem;
+    }
+
+    .heroHeading h1 {
+        font-size: 2rem;
+    }
+
+    .heroHeading p {
+        font-size: 0.95rem;
+    }
+
+    /* Scroll Stack Mobile */
+    .bigText {
+        font-size: 3rem;
+    }
+
+    .stackCard {
+        width: 160px;
+        height: 240px;
+    }
+
+    /* Showcase Mobile Adjustments */
+    .brandShowcase {
+        padding: 2rem 1rem;
+    }
+
+    .brandTitleLarge {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .showcaseContent {
+        gap: 2rem;
+    }
+
+    .imageFrame {
         height: 250px;
     }
 
-    .clubTitle {
+    .foundersNote {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .noteContent blockquote {
+        font-size: 1rem;
+    }
+
+    .founderImgWrapper,
+    .founderImg {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bigText {
         font-size: 2.5rem;
+    }
+
+    .stackCard {
+        width: 140px;
+        height: 210px;
+    }
+
+    .heroHeading h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Advisor Section Styles */
+.advisorSection {
+    background: #141414;
+    /* Slightly different shade */
+    color: #fff;
+    padding: 3rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    /* Spacing from founders note */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.advisorContent {
+    flex: 1;
+    z-index: 2;
+}
+
+.advisorContent h3 {
+    color: #D4AF37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.advisorContent p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.advisorImgWrapper {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 50%;
+    /* Circle for distinction? Or stick to rounded rect? Sticking to rounded rect for consistency */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #D4AF37;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+/* Update Media Queries for Advisor Section */
+@media (max-width: 900px) {
+    .advisorSection {
+        flex-direction: column-reverse;
+        padding: 2rem;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .advisorImgWrapper {
+        width: 200px;
+        height: 200px;
     }
 }

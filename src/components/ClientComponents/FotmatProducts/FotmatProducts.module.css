@@ -1,0 +1,359 @@
+.spaceContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Full viewport height for immersion */
+    background: #fff;
+    /* Deep space black */
+    overflow: hidden;
+    perspective: 1000px;
+    /* Essential for 3D depth feel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    /* Suggests interaction */
+}
+
+/* Optional: Starfield background effect if desired, 
+   but we'll keep it clean first or add simple stars via JS/CSS if requested later. */
+
+.floatingItem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    will-change: transform, opacity;
+}
+
+.itemImageWrapper {
+    position: relative;
+    /* Base size, will be scaled by animation */
+    width: 140px;
+    height: 140px;
+    /* Removed card styling */
+}
+
+.floatingItem:hover .itemImageWrapper {
+    /* Scale effect or simple glow on the image itself could be added here if desired, 
+       but removing the box/border as requested */
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Modal Styles */
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modalContent {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    /* Reduced width for compactness */
+    max-height: 90vh;
+    /* Constraint height */
+    overflow: hidden;
+    /* No scrollbars as requested */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #fff;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 20;
+    transition: transform 0.2s, color 0.2s;
+    line-height: 1;
+}
+
+.closeButton:hover {
+    transform: rotate(90deg);
+    color: #D4AF37;
+}
+
+/* View 1: Model Selection */
+.modelSelectionView {
+    padding: 4rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.brandTitleLarge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    color: #D4AF37;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.selectPrompt {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 3rem;
+}
+
+.modelGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.modelButton {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modelButton:hover {
+    border-color: #D4AF37;
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* View 2: Product Details (Carousel + Compact Info) */
+.detailsView {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.carouselContainer {
+    position: relative;
+    width: 100%;
+    /* Fixed height to prevent collapse. 
+       Adjust this value based on desired aspect ratio/size */
+    height: 350px;
+    /* Alternatively, if we want it flexible but min-size:
+       min-height: 300px; 
+       flex: 1; 
+    */
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.carouselImageWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Carousel Overlay Buttons */
+.prevBtn,
+.nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 2.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+    border-radius: 5px;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+    background: rgba(212, 175, 55, 0.8);
+    color: #000;
+}
+
+.prevBtn {
+    left: 10px;
+}
+
+.nextBtn {
+    right: 10px;
+}
+
+.imageCounter {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    z-index: 10;
+}
+
+.compactDetails {
+    height: 40%;
+    /* Occupy bottom 40% */
+    padding: 1.5rem 2rem;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Align to top */
+    border-top: 1px solid #333;
+}
+
+.modelTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #D4AF37;
+    margin-bottom: 1rem;
+}
+
+.qualitiesRow {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.qualityTag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ddd;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    border: 1px solid #333;
+}
+
+.colorsRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.label {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.colorDot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.colorDot:hover {
+    transform: scale(1.2);
+    border-color: #fff;
+}
+
+/* Back Button & Header */
+.detailsHeader {
+    padding: 1rem 2rem 0;
+    flex-shrink: 0;
+    margin-bottom: 0.5rem;
+}
+
+.backButton {
+    background: transparent;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.backButton:hover {
+    color: #D4AF37;
+}
+
+.noImages {
+    color: #666;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #666;
+}
+
+.emptyState h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #888;
+}
+
+@media (max-width: 600px) {
+    .modalContent {
+        max-height: 95vh;
+    }
+
+    .carouselContainer {
+        height: 250px;
+        flex-shrink: 0;
+        /* Prevent shrinking */
+    }
+
+    .compactDetails {
+        height: 50%;
+        padding: 1rem;
+    }
+
+    .brandTitleLarge {
+        font-size: 2rem;
+    }
+
+    .modelTitle {
+        font-size: 1.5rem;
+    }
+}

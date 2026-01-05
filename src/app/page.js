@@ -8,9 +8,12 @@ import FounderSection from "../components/ClientComponents/HomePage/Founder/Foun
 import Background from "../components/ClientComponents/HomePage/BackGround/Background";
 // import Background from "../components/ClientComponents/HomePage/BackGround/Background";
 
+import SplashScreen from "../components/ClientComponents/SplashScreen/SplashScreen";
+
 export default function Home() {
   return (
     <div className={styles.page}>
+      <SplashScreen />
       <Background />
 
       <main style={{ marginTop: "100px", width: "100%" }}>

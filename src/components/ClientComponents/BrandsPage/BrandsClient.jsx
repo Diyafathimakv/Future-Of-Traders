@@ -4,12 +4,25 @@ import Image from "next/image";
 import styles from "./Brands.module.css";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import FotmatProducts from "../FotmatProducts/FotmatProducts";
 
 const asmakImages = [
     "https://cdn.pixabay.com/photo/2020/03/21/03/59/lobster-4952603_1280.jpg",
     "https://cdn.pixabay.com/photo/2017/07/12/06/01/seafood-feast-2495972_1280.jpg",
     "https://cdn.pixabay.com/photo/2014/02/08/13/35/shrimp-261804_1280.jpg",
     "https://cdn.pixabay.com/photo/2023/07/07/17/47/sushi-8113165_1280.jpg"
+];
+
+const fotmatImages = [
+    "/mat1.png",
+    "/mat3.png",
+    "/mat4.png"
+];
+
+const standbyImages = [
+    "/parts1.png",
+    "/parts2.png",
+    "/parts3.png"
 ];
 
 const containerVariants = {
@@ -116,12 +129,33 @@ export default function BrandsClient() {
     };
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentFotmatImageIndex, setCurrentFotmatImageIndex] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % asmakImages.length);
         }, 4000);
         return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        const i = setInterval(() => {
+            setCurrentFotmatImageIndex((prev) => {
+                const nextIndex = (prev + 1) % fotmatImages.length;
+                console.log("FOTMAT Slideshow: Switching to index", nextIndex, "Image:", fotmatImages[nextIndex]);
+                return nextIndex;
+            });
+        }, 4000);
+        return () => clearInterval(i);
+    }, []);
+
+    const [currentStandbyImageIndex, setCurrentStandbyImageIndex] = useState(0);
+
+    useEffect(() => {
+        const i = setInterval(() => {
+            setCurrentStandbyImageIndex((prev) => (prev + 1) % standbyImages.length);
+        }, 4000);
+        return () => clearInterval(i);
     }, []);
 
     return (
@@ -222,14 +256,14 @@ export default function BrandsClient() {
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ amount: 0.3 }}
+                    viewport={{ amount: 0.1 }}
                     transition={{ duration: 0.8 }}
-                    className={styles.asmakContainer}
+                    className={styles.premiumShowcase}
                 >
-                    <h2 className={styles.clubTitle}>ASMAK CLUB</h2>
+                    <h2 className={styles.brandTitleLarge}>ASMAK CLUB</h2>
 
-                    <div className={styles.asmakContent}>
-                        <div className={styles.asmakText}>
+                    <div className={styles.showcaseContent}>
+                        <div className={styles.showcaseText}>
                             {[
                                 "ASMAK CLUB came into light in January 2025 as the first flagship venture of FOT Groups – Future of Traders.",
                                 "Designed for true seafood lovers, ASMAK CLUB was founded by brothers Mr. Shefi Kappungal and Mr. Shameej Kappungal, under the guidance and supervision of Mr. Noushad Chathalloor.",
@@ -244,18 +278,18 @@ export default function BrandsClient() {
                                     }}
                                     initial="hidden"
                                     whileInView="visible"
-                                    viewport={{ amount: 0.5, once: true }}
+                                    viewport={{ amount: 0.5, once: false }}
                                     dangerouslySetInnerHTML={{ __html: text.replace("ASMAK CLUB", "<strong>ASMAK CLUB</strong>").replace("Mr. Shefi Kappungal", "<strong>Mr. Shefi Kappungal</strong>").replace("Mr. Shameej Kappungal", "<strong>Mr. Shameej Kappungal</strong>").replace("Mr. Noushad Chathalloor", "<strong>Mr. Noushad Chathalloor</strong>") }}
                                 />
                             ))}
 
                             <div className={styles.locationBox}>
                                 <span>📍 Location: </span>
-                                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">View on Google Maps ↗</a>
+                                <a href="https://maps.app.goo.gl/WGFS1tLWT1ZyxPda7?g_st=ipc" target="_blank" rel="noopener noreferrer">View on Google Maps ↗</a>
                             </div>
                         </div>
 
-                        <div className={styles.asmakImage}>
+                        <div className={styles.showcaseImage}>
                             <div className={styles.imageFrame}>
                                 <AnimatePresence mode="wait">
                                     <motion.div
@@ -278,7 +312,13 @@ export default function BrandsClient() {
                         </div>
                     </div>
 
-                    <div className={styles.foundersNote}>
+                    <motion.div
+                        className={styles.foundersNote}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ amount: 0.3, once: false }}
+                        transition={{ duration: 0.8 }}
+                    >
                         <div className={styles.noteContent}>
                             <h3>Founders Note</h3>
                             <blockquote>
@@ -298,19 +338,32 @@ export default function BrandsClient() {
                                 </div>
                                 <p className={styles.imgCaption}>Founders<br /><strong>Shefi & Shameej Kappungal</strong></p>
                             </div>
-                            <div className={styles.founderItem}>
-                                <div className={styles.founderImgWrapper}>
-                                    <Image
-                                        src="/noushad chathalloor_page-0001.jpg"
-                                        alt="Noushad Chathalloor"
-                                        fill
-                                        style={{ objectFit: 'cover' }}
-                                    />
-                                </div>
-                                <p className={styles.imgCaption}>Guidance & Supervision<br /><strong>Mr. Noushad Chathalloor</strong></p>
-                            </div>
                         </div>
-                    </div>
+                    </motion.div>
+
+                    <motion.div
+                        className={styles.advisorSection}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ amount: 0.3, once: false }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <div className={styles.advisorContent}>
+                            <h3>Founding Partner & Advisor</h3>
+                            <p>
+                                We respectfully acknowledge <strong>NOUSHAD CHATHALLOOR</strong>, whose early vision, time, and financial commitment contributed meaningfully to the foundation of our restaurant. His support during the formative stage helped shape the beginning of our journey, and we extend our sincere appreciation for his role in bringing this vision to life.
+                            </p>
+                        </div>
+                        <div className={styles.advisorImgWrapper}>
+                            <Image
+                                src="/noushad chathalloor_page-0001.jpg"
+                                alt="Noushad Chathalloor"
+                                fill
+                                style={{ objectFit: 'cover' }}
+                            />
+                            <p className={styles.imgCaption}>Founding Partner & Advisor<br /><strong>Mr. Noushad Chathalloor</strong></p>
+                        </div>
+                    </motion.div>
 
                 </motion.div>
             </div>
@@ -320,38 +373,153 @@ export default function BrandsClient() {
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ amount: 0.3 }}
+                    viewport={{ amount: 0.1 }}
                     transition={{ duration: 0.8 }}
-                    style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                    className={styles.premiumShowcase}
                 >
-                    <h2 style={{ fontSize: '3rem', marginBottom: '2rem', color: '#D4AF37', fontFamily: 'Montserrat, sans-serif' }}>FOTMAT</h2>
-                    <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-                        <Image src="/carmat n.png" alt="FOTMAT Showcase" fill style={{ objectFit: 'cover' }} />
+                    <h2 className={styles.brandTitleLarge}>FOTMAT</h2>
+
+                    <div className={styles.showcaseContent}>
+                        <div className={styles.showcaseText}>
+                            {[
+                                "FOTMAT is a premium automotive mat brand crafted for those who expect excellence in every detail of their drive. We specialize in high-quality TPE car mats that combine precision engineering, refined aesthetics, and long-lasting protection.",
+                                "Every FOTMAT is designed to fit seamlessly, enhancing both comfort and cleanliness without compromising on style.",
+                                "Rooted in a philosophy of understated luxury, FOTMAT focuses on durability, functionality, and modern elegance. Our products are built to withstand daily use while maintaining a premium look and feel, ensuring your vehicle interior remains protected and elevated at all times.",
+                                "At FOTMAT, we believe true luxury is not loud—it is felt in the comfort beneath your feet and the confidence in every journey.",
+                                "Founded by Shefi Kappungal in December 2025, Fotmat is built for those who expect elegance in every drive."
+                            ].map((text, i) => (
+                                <motion.p
+                                    key={i}
+                                    variants={{
+                                        hidden: { opacity: 0, x: i % 2 === 0 ? -50 : 50 },
+                                        visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay: i * 0.2 } }
+                                    }}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ amount: 0.5, once: false }}
+                                    dangerouslySetInnerHTML={{ __html: text.replace("FOTMAT", "<strong>FOTMAT</strong>") }}
+                                />
+                            ))}
+                        </div>
+
+                        <div className={styles.showcaseImage}>
+                            <div className={styles.imageFrame}>
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={currentFotmatImageIndex}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 1 }}
+                                        style={{ position: 'absolute', width: '100%', height: '100%' }}
+                                    >
+                                        <Image
+                                            src={fotmatImages[currentFotmatImageIndex]}
+                                            alt="FOTMAT Premium Mats"
+                                            fill
+                                            style={{ objectFit: 'cover' }}
+                                        />
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
+                        </div>
                     </div>
-                    <p style={{ marginTop: '2rem', fontSize: '1.2rem', lineHeight: '1.6', color: '#ccc' }}>
-                        Precision engineering meets automotive luxury. FOTMAT delivers high-quality car accessories designed for durability and style.
-                    </p>
+
+
+
                 </motion.div>
             </div>
 
+            <FotmatProducts />
+
+            {/* Standby Hub Showcase Section */}
             {/* Standby Hub Showcase Section */}
             <div ref={standbyRef} className={styles.brandShowcase}>
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ amount: 0.3 }}
+                    viewport={{ amount: 0.1 }}
                     transition={{ duration: 0.8 }}
-                    style={{ maxWidth: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                    className={styles.premiumShowcase}
                 >
-                    <h2 style={{ fontSize: '3rem', marginBottom: '2rem', color: '#D4AF37', fontFamily: 'Montserrat, sans-serif' }}>STANDBY HUB</h2>
-                    <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-                        <Image src="/spareparts n1.png" alt="Standby Hub Showcase" fill style={{ objectFit: 'cover' }} />
+                    <h2 className={styles.brandTitleLarge}>STANDBY HUB</h2>
+
+                    <div className={styles.showcaseContent}>
+                        <div className={styles.showcaseText}>
+                            {[
+                                "Standby Hub exists to ensure uninterrupted performance across the cold chain.",
+                                "As a trusted division of FOT Groups, we supply high-quality spare parts for transport refrigeration and cold room systems.",
+                                "Our solutions are chosen for precision, durability, and long-term operational value.",
+                                "We partner with businesses that demand consistency and trust."
+                            ].map((text, i) => (
+                                <motion.p
+                                    key={i}
+                                    variants={{
+                                        hidden: { opacity: 0, x: i % 2 === 0 ? -50 : 50 },
+                                        visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay: i * 0.2 } }
+                                    }}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ amount: 0.5, once: false }}
+                                    dangerouslySetInnerHTML={{ __html: text.replace("Standby Hub", "<strong>Standby Hub</strong>") }}
+                                />
+                            ))}
+                        </div>
+
+                        <div className={styles.showcaseImage}>
+                            <div className={styles.imageFrame}>
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={currentStandbyImageIndex}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 1 }}
+                                        style={{ position: 'absolute', width: '100%', height: '100%' }}
+                                    >
+                                        <Image
+                                            src={standbyImages[currentStandbyImageIndex]}
+                                            alt="Standby Hub Spare Parts"
+                                            fill
+                                            style={{ objectFit: 'cover' }}
+                                        />
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
+                        </div>
                     </div>
-                    <p style={{ marginTop: '2rem', fontSize: '1.2rem', lineHeight: '1.6', color: '#ccc' }}>
-                        Reliability you can trust. Standby Hub offers a wide range of genuine spare parts to keep you moving without interruption.
-                    </p>
+
+                    <motion.div
+                        className={styles.foundersNote}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ amount: 0.3, once: false }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <div className={styles.noteContent}>
+                            <h3>Founders Note</h3>
+                            <blockquote>
+                                “Reliability is the foundation of everything we build.”
+                            </blockquote>
+                            <cite>— Saleh Kappungal<br /><span>Founder, Standby Hub</span></cite>
+                        </div>
+                        <div className={styles.foundersGrid}>
+                            <div className={styles.founderItem}>
+                                <div className={styles.founderImg}>
+                                    <Image
+                                        src="/Standby hub founder.PNG"
+                                        alt="Saleh Kappungal"
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                </div>
+                                <p className={styles.imgCaption}>Founder<br /><strong>Saleh Kappungal</strong></p>
+                            </div>
+                        </div>
+                    </motion.div>
+
                 </motion.div>
             </div>
-        </div>
+        </div >
     )
 }

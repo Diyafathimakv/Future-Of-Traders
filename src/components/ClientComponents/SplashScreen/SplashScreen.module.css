@@ -1,0 +1,74 @@
+.splashContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #161632;
+    /* Complete Blue as requested */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    /* Stack vertically */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+    /* Add padding for small screens */
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    /* Little gap between letters */
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    /* Adjust based on image aspect ratio */
+    position: relative;
+    transition: transform 0.3s ease;
+    /* Smooth resizing */
+}
+
+.logoPart {
+    position: relative;
+    /* Dimensions will be handled by Next.js Image or inline styles mainly, 
+       but we can set a base size here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.groupsContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    /* Smooth resizing */
+}
+
+/* Responsive Scaling */
+@media (max-width: 768px) {
+
+    .logoContainer,
+    .groupsContainer {
+        transform: scale(0.8);
+        /* Scale down slightly on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logoContainer,
+    .groupsContainer {
+        transform: scale(0.85);
+        /* Scale down only slightly on mobile to keep it large */
+    }
+
+    .logoContainer {
+        gap: 2px;
+    }
+}
