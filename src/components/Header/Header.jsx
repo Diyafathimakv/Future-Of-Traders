@@ -38,9 +38,9 @@ const Header = () => {
         >
             <div className={styles.logoContainer}>
                 <Image
-                    src="/FOT logo2.png"
+                    src="/FOT logo3.png"
                     alt="FOT logo"
-                    width={150}
+                    width={125}
                     height={90}
                     style={{ objectFit: 'contain' }}
                     priority

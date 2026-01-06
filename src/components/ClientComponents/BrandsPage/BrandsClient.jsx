@@ -265,7 +265,7 @@ export default function BrandsClient() {
                     <div className={styles.showcaseContent}>
                         <div className={styles.showcaseText}>
                             {[
-                                "ASMAK CLUB came into light in January 2025 as the first flagship venture of FOT Groups – Future of Traders.",
+                                "ASMAK CLUB came into light in January 2025 as the first flagship venture of FOT Group – Future of Traders.",
                                 "Designed for true seafood lovers, ASMAK CLUB was founded by brothers Mr. Shefi Kappungal and Mr. Shameej Kappungal, under the guidance and supervision of Mr. Noushad Chathalloor.",
                                 "ASMAK CLUB redefines the experience through live fish selection, complete transparency, and an open kitchen concept—where freshness is not promised, but witnessed. Here, customers choose their fish live, watch it prepared with care, and enjoy seafood at its purest form.",
                                 "Youthful in spirit yet premium in execution, ASMAK CLUB is where every catch meets the table with trust, quality, and elegance."
@@ -351,7 +351,7 @@ export default function BrandsClient() {
                         <div className={styles.advisorContent}>
                             <h3>Founding Partner & Advisor</h3>
                             <p>
-                                We respectfully acknowledge <strong>NOUSHAD CHATHALLOOR</strong>, whose early vision, time, and financial commitment contributed meaningfully to the foundation of our restaurant. His support during the formative stage helped shape the beginning of our journey, and we extend our sincere appreciation for his role in bringing this vision to life.
+                                We respectfully acknowledge <strong style={{ color: '#D4AF37', fontStyle: 'italic' }}>Noushad Chathalloor</strong>, whose early vision, time, and financial commitment contributed meaningfully to the foundation of our restaurant. His support during the formative stage helped shape the beginning of our journey, and we extend our sincere appreciation for his role in bringing this vision to life.
                             </p>
                         </div>
                         <div className={styles.advisorImgWrapper}>
@@ -448,7 +448,7 @@ export default function BrandsClient() {
                         <div className={styles.showcaseText}>
                             {[
                                 "Standby Hub exists to ensure uninterrupted performance across the cold chain.",
-                                "As a trusted division of FOT Groups, we supply high-quality spare parts for transport refrigeration and cold room systems.",
+                                "As a trusted division of FOT Group, we supply high-quality spare parts for transport refrigeration and cold room systems.",
                                 "Our solutions are chosen for precision, durability, and long-term operational value.",
                                 "We partner with businesses that demand consistency and trust."
                             ].map((text, i) => (

@@ -98,7 +98,7 @@ const BrandsSection = () => {
                                         }}
                                     />
                                 </div>
-                                <h3 className={styles.brandName}>{brand.name}</h3>
+
                             </motion.div>
 
                             <AnimatePresence>

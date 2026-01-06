@@ -40,9 +40,9 @@ const FounderSection = () => {
                 >
                     {/* Placeholder Image - Replace when user provides real one */}
                     <Image
-                        src="/The Founder.png"
+                        src="/The founderr.jpg"
                         // Temporarily reuse an existing classy image or generic placeholder
-                        alt="Diya Fathima"
+                        alt="Shefi Kappungal"
                         width={800}
                         height={1000}
                         style={{ width: "100%", height: "auto", display: "block" }}
@@ -64,7 +64,7 @@ const FounderSection = () => {
                     <motion.h2 variants={itemVariants} className={styles.founderName}>Shefi Kappungal</motion.h2>
 
                     <motion.h3 variants={itemVariants} className={styles.subtitle}>
-                        Founder of FOT Groups.<br />
+                        Founder of FOT Group.<br />
                         The man behind it all.
                     </motion.h3>
 

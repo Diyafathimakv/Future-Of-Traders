@@ -117,7 +117,7 @@ export default function SplashScreen({ onFinish }) {
                         style={{ marginTop: '-80px' }} // Adjust proximity to FOT
                     >
                         <Image
-                            src="/FOT GROUPS (2).png"
+                            src="/FOT GROUPP.png"
                             alt="GROUPS"
                             width={320} // Made bigger
                             height={100}
